@@ -24,6 +24,10 @@ function App() {
     pedidoGet();
   })
 
+  function editar(){
+    console.log("a");
+  }
+
   return (
     <div className="App">
       <br/>
@@ -32,33 +36,30 @@ function App() {
         <img src={logoCadastro} alt="Cadastro"/>
         <button className='btn btn-sucess'>Incluir Espada</button>
       </header>
-      <table className='table table-bordered'>
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Família</th>
-            <th>Força</th>
-            <th>Durabilidade</th>
-            <th>Operação</th>
-          </tr>
-        </thead>
-        <tbody>
-           {data.map(espada=>(
-            <tr key={espada.id}>
-              <td>{espada.id}</td>
-              <td>{espada.nome}</td>
-              <td>{espada.familia}</td>
-              <td>{espada.forca}</td>
-              <td>{espada.durabilidade}</td>
-              <td>
-                <button className='btn btn-Primary'>Editar</button> {" "}
-                <button className='btn btn-Danger'>Excluir</button>
-              </td>
-            </tr>
-           ))}
-        </tbody>
-      </table>
+
+      <div class="flex-container1">
+          <div style={{}}>Id</div>
+          <div style={{}}>Nome</div>
+          <div style={{}}>Família</div>
+          <div style={{}}>Força</div>
+          <div style={{}}>Durabilidade</div>
+          <div style={{flex:3}}>Operação</div>
+      </div>
+
+      {data.map(espada=>(
+        <div key={espada.id} class="flex-container">
+            <div style={{}}>{espada.id}</div>
+            <div style={{}}>{espada.nome}</div>
+            <div style={{}}>{espada.familia}</div>
+            <div style={{}}>{espada.forca}</div>
+            <div style={{}}>{espada.durabilidade}</div>
+            <div style={{flex:3}}>
+              <button className='btn btn-Primary' onClick={editar}>Editar</button>
+              <button className='btn btn-Danger'>Excluir</button>
+            </div>
+          </div>
+          ))}
+      
     </div>
   );
 }
