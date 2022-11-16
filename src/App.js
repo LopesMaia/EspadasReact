@@ -9,12 +9,12 @@ function App() {
 
   const baseUrl="https://localhost:44321/api/Espadas";
 
-  const [data, setData]=useState([]);
+  const [data, setData]=useState([]); //data = estado atual dos dados, setData = atualiza o estado
 
   const pedidoGet = async()=>{
-    await axios.get(baseUrl)
+    await axios.get(baseUrl) 
     .then(response => {
-      setData(response.data);
+      setData(response.data); 
     }).catch(error=>{
       console.log(error);
     })
@@ -24,8 +24,9 @@ function App() {
     pedidoGet();
   })
 
-  function editar(){
-    console.log("a");
+  function Incluir(){
+    const url = "";
+
   }
 
   return (
@@ -34,7 +35,7 @@ function App() {
       <h3>Espadas</h3>
       <header>
         <img src={logoCadastro} alt="Cadastro"/>
-        <button className='btn btn-sucess'>Incluir Espada</button>
+        <button className='btn btn-sucess' onClick={Incluir} >Incluir Espada</button>
       </header>
 
       <div class="flex-container1">
@@ -54,7 +55,7 @@ function App() {
             <div style={{}}>{espada.forca}</div>
             <div style={{}}>{espada.durabilidade}</div>
             <div style={{flex:3}}>
-              <button className='btn btn-Primary' onClick={editar}>Editar</button>
+              <button className='btn btn-Primary'>Editar</button>
               <button className='btn btn-Danger'>Excluir</button>
             </div>
           </div>
